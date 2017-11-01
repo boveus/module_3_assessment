@@ -17,6 +17,7 @@ gem 'rspec-rails'
 gem 'database_cleaner'
 gem 'launchy'
 gem 'figaro'
+gem 'active_model_serializers'
 
 group :development do
   gem "spring"
