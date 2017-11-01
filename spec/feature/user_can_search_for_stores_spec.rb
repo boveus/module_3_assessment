@@ -15,14 +15,14 @@ feature "As a user, when I visit '/' and search for '80202'" do
     click_on "Search"
 
     expect(page).to have_content("17 Total Stores")
-    
+
     expect(page).to have_selector('#store', count: 10)
 
-    expect(page).to have_content(@first_store.long_name)
-    expect(page).to have_content(@first_store.city)
-    expect(page).to have_content(@first_store.distance)
-    expect(page).to have_content(@first_store.phone_number)
-    expect(page).to have_content(@first_store.store_type)
+    expect(page).to have_content(@first_store["long_name"])
+    expect(page).to have_content(@first_store["city"])
+    expect(page).to have_content(@first_store["distance"])
+    expect(page).to have_content(@first_store["phone_number"])
+    expect(page).to have_content(@first_store["store_type"])
   end
 end
 
