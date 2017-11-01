@@ -31,9 +31,7 @@ feature "When I send a GET request to /api/v1/items/1" do
  end
 feature "When I send a DELETE request to /api/v1/items/1" do
   it "Returns a a 204 JSON response if the record is successfully deleted" do
-
-    delete "api/v1/items/1"
-
+    page.driver.submit :delete, "api/v1/items/1", {}
     expect(response.status).to eq(204)
   end
 end
