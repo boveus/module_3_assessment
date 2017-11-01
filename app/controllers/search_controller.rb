@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    bb_service.find_stores_by_zip("80202")
+    bb_service.find_stores_by_zip("80202")["total"]
     binding.pry
   end
 

@@ -18,6 +18,7 @@ gem 'database_cleaner'
 gem 'launchy'
 gem 'figaro'
 gem 'active_model_serializers'
+gem 'httparty'
 
 group :development do
   gem "spring"
