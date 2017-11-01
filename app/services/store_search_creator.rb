@@ -8,6 +8,7 @@ class StoreSearchCreator
         store["phone"],
         store["storeType"]
       )
+      binding.pry
     end
   end
 end
