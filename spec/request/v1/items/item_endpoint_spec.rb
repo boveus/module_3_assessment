@@ -30,8 +30,21 @@ feature "When I send a GET request to /api/v1/items/1" do
    end
 feature "When I send a DELETE request to /api/v1/items/1" do
   it "Returns a a 204 JSON response if the record is successfully deleted" do
+
     page.driver.submit :delete, "api/v1/items/1", {}
     expect(page.status_code).to eq(204)
+    end
+  end
+  feature "When I send a POST request to `/api/v1/items` with a name, description, and image_url" do
+    it "sends a 201 JSON  response if the record is successfully created and a JSON response containing the id, name, description, and image_url but not the created_at or updated_at" do
+
+      page.driver.submit :post, "api/v1/items/1", {
+                      id: 2,
+                      name: "Another Awesome Marble Plate",
+                      description: "WHAT Omnis corporis voluptas voluptatem et cum placeat quas. Aut tempore voluptas minus. Ea odit ipsa. Est sed beatae est sunt nulla.",
+                      image_url: "http://robohash.org/0.png?set=set2u0026bgset=bg1u0026size=300x200"
+                      }
+
     end
   end
 end
