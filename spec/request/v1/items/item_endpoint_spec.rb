@@ -28,10 +28,10 @@ feature "When I send a GET request to /api/v1/items/1" do
     expect(page).not_to have_content(@unexpected_json["created_at"])
     expect(page).not_to have_content(@unexpected_json["updated_at"])
    end
- end
 feature "When I send a DELETE request to /api/v1/items/1" do
   it "Returns a a 204 JSON response if the record is successfully deleted" do
     page.driver.submit :delete, "api/v1/items/1", {}
-    expect(response.status).to eq(204)
+    expect(page.status_code).to eq(204)
+    end
   end
 end
