@@ -1,7 +1,7 @@
 class Store
-  def initialize(long_name, city, distance, phone, store_type)
-    @long_name = long_name
+  def initialize(city, long_name, distance, phone, store_type)
     @city = city
+    @long_name = long_name
     @distance = distance
     @phone = phone
     @store_type = store_type

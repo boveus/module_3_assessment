@@ -4,13 +4,11 @@ feature "As a user, when I visit '/' and search for '80202'" do
   it "should redirect me to '/search' and I should see stores
   within 25 miles of that zip code" do
 
-    @expected_store = {
-        long_name: 'some_string',
-        city: 'Denver?',
-        distance: "10",
-        phone_number: "45353453",
-        store_type: "retail?"
-    }
+    @first_store = {"city"=>"Denver",
+                     "longName"=>"Cherry Creek Shopping Center",
+                     "distance"=> 3.45,
+                     "phone"=> "303-270-9189",
+                     "storeType"=>"Mobile SAS"}
 
     visit "/"
     fill_in "search_box", with: "80202"
@@ -18,11 +16,11 @@ feature "As a user, when I visit '/' and search for '80202'" do
     expect(page).to have_content("17 Total Stores")
     expect(page).to have_selector('store', count: 10)
 
-    expect(page).to have_content(@expected_store.long_name)
-    expect(page).to have_content(@expected_store.city)
-    expect(page).to have_content(@expected_store.distance)
-    expect(page).to have_content(@expected_store.phone_number)
-    expect(page).to have_content(@expected_store.store_type)
+    expect(page).to have_content(@first_store.long_name)
+    expect(page).to have_content(@first_store.city)
+    expect(page).to have_content(@first_store.distance)
+    expect(page).to have_content(@first_store.phone_number)
+    expect(page).to have_content(@first_store.store_type)
   end
 end
 
