@@ -6,5 +6,4 @@ class Store
     @phone = phone
     @store_type = store_type
   end
-
 end
