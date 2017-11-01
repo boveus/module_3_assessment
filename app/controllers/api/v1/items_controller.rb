@@ -15,8 +15,8 @@ class Api::V1::ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     if @item
-      # render json: Item.find(@item.id), :status => 204
-      redirect_to :action => "show", :id => @item.id
+      # render json: Item.find(@item.id)
+      render json: @item, :status => 201
     else
       render :nothing => true, :status => 400
       #look up more specific response code later
