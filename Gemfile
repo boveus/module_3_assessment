@@ -9,9 +9,14 @@ gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem "faker"
+gem 'pry'
 gem "therubyracer"
 gem "less-rails-bootstrap"
 gem "minitest-rails"
+gem 'rspec-rails'
+gem 'database_cleaner'
+gem 'launchy'
+gem 'figaro'
 
 group :development do
   gem "spring"
