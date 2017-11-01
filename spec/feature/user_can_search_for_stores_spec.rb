@@ -13,10 +13,10 @@ feature "As a user, when I visit '/' and search for '80202'" do
     visit "/"
     fill_in "search_box", with: "80202"
     click_on "Search"
-    save_and_open_page
 
     expect(page).to have_content("17 Total Stores")
-    expect(page).to have_selector('store', count: 10)
+    
+    expect(page).to have_selector('#store', count: 10)
 
     expect(page).to have_content(@first_store.long_name)
     expect(page).to have_content(@first_store.city)

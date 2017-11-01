@@ -2,6 +2,7 @@ class SearchController < ApplicationController
   def index
     response = bb_service.find_stores_by_zip(search_params["search"])
     @stores = store_search_creator.create_stores(response)
+    binding.pry
     @total_stores = response["total"]
   end
 
