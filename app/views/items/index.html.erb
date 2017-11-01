@@ -4,6 +4,14 @@
       <h1><%= @items.count %> Items</h1>
     </div>
   </div>
+
+  <%= form_tag search_index_path, :method => 'get'  do %>
+    <p>
+      <%= text_field_tag :search, params[:search], id: "search_box"%>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+
   <div class="row"></div>
   <% @items.each do |item| %>
     <div class="col-sm-3">
@@ -15,4 +23,3 @@
     </div>
   <% end %>
 </div>
-
