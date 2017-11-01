@@ -11,4 +11,20 @@ class Api::V1::ItemsController < ApplicationController
     Item.find(params[:id].to_i).destroy
     render :nothing => true, :status => 204
   end
+
+  def create
+    @item = Item.create(item_params)
+    if @item
+      render json: @item, :status => 204
+    else
+      render :nothing => true, :status => 400
+      #look up more specific response code later
+    end
+  end
+
+  private
+
+  def item_params
+    params.permit(:name, :description, :image_url)
+  end
 end

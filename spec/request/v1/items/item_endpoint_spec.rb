@@ -38,13 +38,21 @@ feature "When I send a DELETE request to /api/v1/items/1" do
   feature "When I send a POST request to `/api/v1/items` with a name, description, and image_url" do
     it "sends a 201 JSON  response if the record is successfully created and a JSON response containing the id, name, description, and image_url but not the created_at or updated_at" do
 
-      page.driver.submit :post, "api/v1/items/1", {
-                      id: 2,
+      item_params = {
                       name: "Another Awesome Marble Plate",
                       description: "WHAT Omnis corporis voluptas voluptatem et cum placeat quas. Aut tempore voluptas minus. Ea odit ipsa. Est sed beatae est sunt nulla.",
                       image_url: "http://robohash.org/0.png?set=set2u0026bgset=bg1u0026size=300x200"
                       }
 
+      page.driver.browser.post('/api/v1/items', item_params)
+
+      expect(page.status_code).to eq(204)
+      save_and_open_page
+      expect(page).to have_content(item_params[:name])
+      expect(page).to have_content(item_params[:description])
+      expect(page).to have_content(item_params[:image_url])
+      expect(page).not_to have_content(item_params["created_at"])
+      expect(page).not_to have_content(item_params["updated_at"])
     end
   end
 end
